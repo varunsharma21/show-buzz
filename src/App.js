@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { showsContext } from "./ShowFetcher";
-import ShowsList from "./Components/ShowsList/ShowsList";
-import Sidebar from "./Components/Sidebbar/Sidebar";
 import LandingPage from "./Pages/Landing/LandingPage";
 
 function App() {
   const [shows, setShows] = useState([]);
+  const [filter, setFilter] = useState("");
 
   const ShowFetcherHandler = async () => {
     try {
@@ -38,12 +37,10 @@ function App() {
     ShowFetcherHandler();
   }, []);
 
-  const contextInfo = { shows: shows };
+  const contextInfo = { shows, setShows, filter, setFilter };
 
   return (
     <showsContext.Provider value={contextInfo}>
-      {/* <ShowsList /> */}
-      {/* <Sidebar /> */}
       <LandingPage />
     </showsContext.Provider>
   );
