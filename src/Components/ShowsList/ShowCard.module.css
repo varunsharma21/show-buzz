@@ -1,0 +1,28 @@
+.container {
+  height: 350px;
+  width: 200px;
+  background-color: rgb(241, 240, 240);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+  border-radius: 20px;
+  border: 0.5px solid rgb(208, 205, 205);
+  cursor: pointer;
+}
+
+.name {
+  margin-top: 10px;
+  background-color: transparent;
+}
+
+.container img {
+  height: 250px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.container p {
+  margin-top: 10px;
+  background-color: transparent;
+}
