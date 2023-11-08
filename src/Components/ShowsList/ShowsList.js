@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { showsContext } from "../../ShowFetcher";
+import { showsContext } from "./../../store";
 import ShowCard from "./ShowCard";
 import styles from "./ShowsList.module.css";
 
@@ -9,7 +9,7 @@ const ShowsList = () => {
   const filteredShows = shows.filter((show) => show.genres.includes(filter));
 
   const [visibleShows, setVisibleShows] = useState(12);
-  // console.log(shows.length, visibleShows);
+  console.log(shows.length);
 
   useEffect(() => {
     const onScroll = () => {
