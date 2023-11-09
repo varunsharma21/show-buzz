@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styles from "./Sidebar.module.css";
-import { showsContext } from "../../ShowFetcher";
+import { showsContext } from "../../store";
 
 const Sidebar = () => {
   const ctx = useContext(showsContext);

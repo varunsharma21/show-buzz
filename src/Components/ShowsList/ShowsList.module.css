@@ -2,4 +2,5 @@
   display: grid;
   margin: 0% 7% 3% 25%;
   grid-template-columns: repeat(4, 1fr);
+  height: 100%;
 }
