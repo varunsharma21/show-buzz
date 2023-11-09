@@ -5,7 +5,7 @@ import styles from "./ShowsList.module.css";
 
 const ShowsList = () => {
   const ctx = useContext(showsContext);
-  const { shows, filter } = ctx;
+  const { shows, filter, error, isLoading } = ctx;
   const filteredShows = shows.filter((show) => show.genres.includes(filter));
 
   const [visibleShows, setVisibleShows] = useState(12);
@@ -20,7 +20,6 @@ const ShowsList = () => {
           window.document.body.offsetHeight - 50 &&
         visibleShows < shows.length
       ) {
-        console.log("Scroll event triggered!");
         setVisibleShows((prev) => prev + 12);
       }
     };
@@ -29,30 +28,27 @@ const ShowsList = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [visibleShows, shows]);
 
+  const renderShowCards = (showsToRender) => {
+    return showsToRender
+      .slice(0, visibleShows)
+      .map((show) => (
+        <ShowCard
+          key={show.id}
+          name={show.name}
+          rating={show.rating}
+          poster={show.poster}
+        />
+      ));
+  };
+
   return (
     <div className={styles.container}>
-      {filter === "" &&
-        shows
-          .slice(0, visibleShows)
-          .map((show) => (
-            <ShowCard
-              key={show.id}
-              name={show.name}
-              rating={show.rating}
-              poster={show.poster}
-            />
-          ))}
-      {filter !== "" &&
-        filteredShows
-          .slice(0, visibleShows)
-          .map((show) => (
-            <ShowCard
-              key={show.id}
-              name={show.name}
-              rating={show.rating}
-              poster={show.poster}
-            />
-          ))}
+      {isLoading && <h1>Loading...</h1>}
+      {!error && filter === ""
+        ? renderShowCards(shows)
+        : renderShowCards(filteredShows)}
+
+      {error && <h1>{error}</h1>}
     </div>
   );
 };

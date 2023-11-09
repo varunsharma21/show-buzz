@@ -4,8 +4,11 @@ import { showsContext } from "./store";
 function ShowFetcher(props) {
   const [shows, setShows] = useState([]);
   const [filter, setFilter] = useState("");
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const ShowFetcherHandler = async () => {
+  const fetchShows = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch("https://api.tvmaze.com/shows");
       if (!response.ok) {
@@ -23,16 +26,19 @@ function ShowFetcher(props) {
         };
       });
       setShows(transformedShows);
+      setError(null);
     } catch (error) {
       console.log(error.message);
+      setError(error.message);
     }
+    setIsLoading(false);
   };
 
   useEffect(() => {
-    ShowFetcherHandler();
+    fetchShows();
   }, []);
 
-  const contextInfo = { shows, setShows, filter, setFilter };
+  const contextInfo = { shows, setShows, filter, setFilter, error, isLoading };
 
   return (
     <showsContext.Provider value={contextInfo}>
