@@ -1,11 +1,18 @@
 import React from "react";
-import LandingPage from "./Pages/Landing/LandingPage";
 import ShowFetcher from "./ShowFetcher";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./Pages/Landing/LandingPage";
+import DescriptionPage from "./Pages/Description/DescriptionPage";
 
 function App() {
   return (
     <ShowFetcher>
-      <LandingPage />
+      <Router>
+        <Routes>
+          <Route path="/shows" Component={LandingPage} />
+          <Route path="/description" Component={DescriptionPage} />
+        </Routes>
+      </Router>
     </ShowFetcher>
   );
 }
