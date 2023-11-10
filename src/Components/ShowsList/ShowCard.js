@@ -24,7 +24,7 @@ const ShowCard = (props) => {
     <div className={styles.container} onClick={toShowDescription}>
       <img src={poster} alt="poster" />
       <h3 className={styles.name}>{name}</h3>
-      <p className={styles.rating}>Rating: {rating} / 5</p>
+      {/* <p className={styles.rating}>Rating: {rating} / 10</p> */}
     </div>
   );
 };
