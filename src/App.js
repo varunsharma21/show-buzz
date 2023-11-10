@@ -9,7 +9,7 @@ function App() {
     <ShowFetcher>
       <Router>
         <Routes>
-          <Route path="/shows" Component={LandingPage} />
+          <Route path="/" Component={LandingPage} />
           <Route path="/description" Component={DescriptionPage} />
         </Routes>
       </Router>
