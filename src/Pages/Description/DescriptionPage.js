@@ -15,9 +15,11 @@ const DescriptionPage = () => {
         <img src={state.posterLarge} alt="poster" />
         <div className={styles["show-info"]}>
           <p className={styles.name}>{state && state.name}</p>
-          <p className={styles.rating}>Rating: {state && state.rating}/10</p>
+          <p className={styles.rating}>
+            Rating: <span>{state && state.rating}</span> / 10
+          </p>
           <Genres genres={state.genres} />
-          <p className={styles.summary}>Summary:</p>
+          <p className={styles.summary}>Summary</p>
           <p className={styles.desc}>{state && parse(state.description)}</p>
         </div>
       </div>
