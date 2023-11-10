@@ -33,10 +33,13 @@ const ShowsList = () => {
       .slice(0, visibleShows)
       .map((show) => (
         <ShowCard
-          key={show.id}
+          id={show.id}
           name={show.name}
           rating={show.rating}
           poster={show.poster}
+          posterLarge={show.posterLarge}
+          genres={show.genres}
+          description={show.description}
         />
       ));
   };

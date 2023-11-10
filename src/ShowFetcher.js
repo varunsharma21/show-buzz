@@ -22,6 +22,7 @@ function ShowFetcher(props) {
           rating: show.rating.average,
           genres: show.genres,
           poster: show.image.medium,
+          posterLarge: show.image.original,
           description: show.summary,
         };
       });
