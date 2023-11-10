@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./DescriptionPage.module.css";
 import { useLocation } from "react-router-dom";
+import parse from "html-react-parser";
+import Genres from "./Genres";
 
 const DescriptionPage = () => {
   const location = useLocation();
@@ -8,14 +10,17 @@ const DescriptionPage = () => {
   const { state } = location;
 
   return (
-    <div className={styles.container}>
-      <h3>{state && state.id}</h3>
-      <h3>{state && state.name}</h3>
-      <h3>{state && state.rating}</h3>
-      <h3>{state && state.description}</h3>
-      {state && state.genres.map((genre) => <h3>{genre}</h3>)}
-      <img src={state.posterLarge} alt="poster" />
-      <img src={state.poster} alt="poster" />
+    <div className={styles["desc-page"]}>
+      <div className={styles.container}>
+        <img src={state.posterLarge} alt="poster" />
+        <div className={styles["show-info"]}>
+          <p className={styles.name}>{state && state.name}</p>
+          <p className={styles.rating}>Rating: {state && state.rating}/10</p>
+          <Genres genres={state.genres} />
+          <p className={styles.summary}>Summary:</p>
+          <p className={styles.desc}>{state && parse(state.description)}</p>
+        </div>
+      </div>
     </div>
   );
 };

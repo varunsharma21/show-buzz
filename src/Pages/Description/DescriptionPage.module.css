@@ -1,3 +1,52 @@
-.container {
+.desc-page {
   background-color: white;
+  height: 100%;
+  padding: 2.35% 0 2.35% 0;
+}
+
+.container {
+  height: 90vh;
+  width: 95%;
+  /* background-color: rgb(241, 240, 240); */
+  background-color: #f7efe5;
+  display: flex;
+  flex-direction: row;
+  margin-left: 2.5%;
+  border-radius: 20px;
+  border: 1px solid rgb(208, 205, 205);
+}
+
+.container img {
+  height: 90vh;
+  width: 40%;
+  margin-right: 50px;
+  border-radius: 20px;
+}
+
+.name {
+  font-size: 60px;
+  margin: 20px 0 0 0;
+}
+
+.rating {
+  font-size: 20px;
+  margin: 20px 0 0 0;
+}
+
+.genres {
+  font-size: 20px;
+  margin: 20px 0 0 0;
+}
+
+.summary {
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.desc {
+  font-size: 20px;
+  width: 80%;
+  text-align: justify;
+  margin: 10px 0 0 0;
+  line-height: 1.3;
 }
